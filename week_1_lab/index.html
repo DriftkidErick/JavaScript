@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paycheck Calculator</title>
+    <link rel="stylesheet" href="paycheck.css">
+</head>
+    
+<body>
+
+    <main>
+        <h1>Welcome to the Paycheck Calculator</h1>
+
+        <form id="paycheck_form" action="join.html" method="get">
+            <!--method get will post the inputed values in the url
+                mathod post will hide them and put it in a server-->
+            
+            <div> <!--First Name-->
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name"> <!--id is for CSS and name is for JavaScript-->
+                <!--label, texbox and then spave for error message-->
+                <span id="fname_error">*</span>
+            </div>
+
+            <div>
+                <label for="wage">Hourly Wage:</label>
+                <input type="text" id="wage" name="wage"> <!--id is for CSS and name is for JavaScript-->
+                <!--label, texbox and then spave for error message-->
+                <span id="wage_error">*</span>
+            </div>
+
+            <div>
+                <label for="hours">Hours Worked:</label>
+                <input type="text" id="hours" name="hours"> <!--id is for CSS and name is for JavaScript-->
+                <!--label, texbox and then spave for error message-->
+                <span id="hours_error">*</span>
+            </div>
+
+            
+
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" id="submit" value="Calculate">
+                <input type="button" id="clear_form" value="Clear Form">
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Script Goes here-->
+    <script src="paycheck.js"></script>
+
+</body>
+</html>
