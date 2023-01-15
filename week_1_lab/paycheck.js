@@ -62,6 +62,17 @@ const submit = form => //This is once the user clicks submit button
     {
         form.preventDefault();
     }
+
+    //Convert the strings into numbers
+    payRate = Number(rate)
+    payHours = Number(hours)
+
+    //Create the equations
+    const gross = rate * hours
+    const taxAmount = gross * .2 //Gross rate taxed at a 20% rate
+    const net = gross - taxAmount
+
+    alert(`Hello ${fname} here are your results \nGross Pay: $${gross.toFixed(2)}  \nTax Amount: $${taxAmount.toFixed(2)}  \nNet Pay: $${net.toFixed(2)}`);
 };
 
 const clearForm = () => //This is the clear function
@@ -89,3 +100,4 @@ document.addEventListener("DOMContentLoaded", () =>
     //set cursor back to the first text box
     $("#first_name").focus();    
 });
+
