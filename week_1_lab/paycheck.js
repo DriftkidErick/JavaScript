@@ -68,9 +68,28 @@ const submit = form => //This is once the user clicks submit button
     payHours = Number(hours)
 
     //Create the equations
+
+    let taxAmount = 0
     const gross = rate * hours
-    const taxAmount = gross * .2 //Gross rate taxed at a 20% rate
+
+    if (gross < 500)
+    {
+        taxAmount = (gross * .15); //Here the user will be taxed at a 20% rate 
+    } 
+
+    else if (gross < 1000)
+    {
+        taxAmount = (gross * .2); //Here the user will be taxed at a 20% rate
+    }
+
+    else
+    {
+        taxAmount = (gross * .3); //Here the user will be taxed at a 20% rate
+    }
+    
+    
     const net = gross - taxAmount
+
 
     alert(`Hello ${fname} here are your results \nGross Pay: $${gross.toFixed(2)}  \nTax Amount: $${taxAmount.toFixed(2)}  \nNet Pay: $${net.toFixed(2)}`);
 };

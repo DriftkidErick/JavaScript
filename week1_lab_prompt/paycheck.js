@@ -31,6 +31,7 @@ else
 
 net = (gross - taxAmount);
 
+//Variable that stores the information
 const html = `<p>Hello ${name} based on:</p> 
 <p>Hourly Rate: ${payRate}</p>
 <p>Hours Worked: ${hoursWorked}</p>
@@ -39,4 +40,14 @@ const html = `<p>Hello ${name} based on:</p>
 <p>Taxable Amount: $${taxAmount.toFixed(2)}</p> 
 <p>Net Pay: $${net.toFixed(2)}</p>`;
 
+//Alert pop up
+alert(`Hello ${name} based on: 
+Hourly Rate: ${payRate}
+Hours Worked: ${hoursWorked}
+Here are your results:
+Gross Pay: $${gross.toFixed(2)} 
+Taxable Amount: $${taxAmount.toFixed(2)} 
+Net Pay: $${net.toFixed(2)}`);
+
+//This is the documented section at the end of the page
 document.write(html);
