@@ -25,13 +25,13 @@ const submit = form => //This is once the user clicks submit button
     //rate start
     if (isNaN(rate)) //if wage name is not a number
     {
-        $("#wage_error").textContent = "Hourly Wage is required and should be a number!";
+        $("#wage_error").textContent = "Hourly Wage should be a number!";
         isValid = false;
     }
 
     else if (rate == "")
     {
-        $("#wage_error").textContent = "Hourly Wage is required and should be a number!";
+        $("#wage_error").textContent = "Hourly Wage is required!";
         isValid = false;
     }
 
@@ -43,13 +43,13 @@ const submit = form => //This is once the user clicks submit button
     //hours start
     if (isNaN(hours))
     {
-        $("#hours_error").textContent = "Hours worked is required and should be a number!";
+        $("#hours_error").textContent = "Hours worked should be a number!";
         isValid = false;
     }
 
     else if (hours == "")
     {
-        $("#hours_error").textContent = "Hours worked is required and should be a number!";
+        $("#hours_error").textContent = "Hours worked is required!";
         isValid = false;
     }
     else
@@ -62,6 +62,22 @@ const submit = form => //This is once the user clicks submit button
     {
         form.preventDefault();
     }
+};
+
+const clearForm = () => //This is the clear function
+{
+    //clear text boxes
+    $("#first_name").value = "";
+    $("#wage").value = "";
+    $("#hours").value = "";
+
+    //clears the span element 
+    $("#fname_error").textContent = "*";
+    $("#wage_error").textContent = "*";
+    $("#hours_error").textContent = "*";
+
+    //set cursor back to the first text box
+    $("#first_name").focus();
 };
 
 document.addEventListener("DOMContentLoaded", () =>
