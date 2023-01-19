@@ -96,7 +96,16 @@ const submit = form => //Once submit button is clicked all this is preformed
     var net = gross - taxAmount;
     netArray.push(net); //Stores Net to array
 
-    alert(`Hello ${fname} here are your results \nGross Pay: $${gross.toFixed(2)}  \nTax Amount: $${taxAmount.toFixed(2)}  \nNet Pay: $${net.toFixed(2)}`);
+    //Variable that stores the information
+    const html = `<p>Hello ${fname}!!!</p> 
+    <p>Here are your results:</p>
+    <p>Gross Pay: $${gross.toFixed(2)}</p> 
+    <p>Taxable Amount: $${taxAmount.toFixed(2)}</p> 
+    <p>Net Pay: $${net.toFixed(2)}</p>`;
+
+    var total = document.querySelector("#totals");
+
+    total.innerHTML += `<br> Gross Pay: ${gross} <br> Tax Amount: ${taxAmount} <br> Net Pay: ${net}`;
 };
 
 const clearForm = () => //This is the clear function
