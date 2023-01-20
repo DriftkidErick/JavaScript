@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paycheck Calculator</title>
-    <!--This is the CSS file link-->
+
+    <!--Css Ref-->
     <link rel="stylesheet" href="paycheck.css">
+
 </head>
-    
 <body>
 
     <main>
-        
+
         <h1>Welcome to the Paycheck Calculator</h1>
 
-        <form id="paycheck_form">
-            <!--method get will post the inputed values in the url
-                mathod post will hide them and put it in a server-->
-            
+        <form>
+
             <div> <!--First Name-->
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name"> <!--id is for CSS and name is for JavaScript-->
@@ -48,19 +47,9 @@
                 <input type="button" id="clear_form" value="Clear Form">
             </div>
 
-            
         </form>
 
-        <div>
-            <p id="totals" name="totals">
-                
-            </p>
-        </div>
-
     </main>
-
-    <!-- Script Goes here-->
     <script src="paycheck.js"></script>
-
 </body>
 </html>

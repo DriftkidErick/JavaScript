@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+
+    <link rel="stylesheet" href="grades.css"/>
+</head>
+<body>
+    <!-- main html  -->
+    <main>
+        <h1>Student Grade Calculator</h1>
+
+        <div>
+            <label for="student_fName">Student First Name: </label>
+            <input type="text" id="student_fName" name="student_fName"/>
+            <span id="student_fName_error">*</span>
+        </div>
+        <div>
+            <label for="student_lName">Student Last Name: </label>
+            <input type="text" id="student_lName" name="student_lName"/>
+            <span id="student_lName_error">*</span>
+        </div>
+        <div>
+            <label for="assignments">Assignments (20%): </label>
+            <input type="text" id="assignments" name="assignments"/>
+            <span id="assignments_error">*</span>
+        </div>
+        <div>
+            <label for="labs">Labs (20%): </label>
+            <input type="text" id="labs" name="labs"/>
+            <span id="labs_error">*</span>
+        </div>
+        <div>
+            <label for="midterm">Midterm (25%): </label>
+            <input type="text" id="midterm" name="midterm"/>
+            <span id="midterm_error">*</span>
+        </div>
+        <div>
+            <label for="final">Final (35%): </label>
+            <input type="text" id="final" name="final"/>
+            <span id="final_error">*</span>
+        </div>
+        <br>
+        <br>
+        <div>
+            <label>&nbsp;</label>
+            <input type="button" id="calculate" value="Calculate" class="form-button" onclick="calculate()" />
+            <input type="button" id="clear_form" value="Clear Form" />
+        </div>
+    </main>
+
+    <hr>  
+    <!-- for showing the result-->
+    <div id="results"></div>
+
+    <script src="grades.js"></script>
+    
+</body>
+</html>
