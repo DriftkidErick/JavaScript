@@ -7,6 +7,8 @@ var grossArray = [];
 var taxAmountArray = [];
 var netArray = [];
 
+let average = 0;
+
 const submit = evt => //Once the submit button is clicked
 {
     var fname = $("#first_name").value;
@@ -110,7 +112,7 @@ const clearForm = () => //This is the clear function
     $("#first_name").value = "";
     $("#wage").value = "";
     $("#hours").value = "";
-    $("#totals").textContent = "";
+    
 
     //clears the span element 
     $("#fname_error").textContent = "*";
@@ -118,10 +120,14 @@ const clearForm = () => //This is the clear function
     $("#hours_error").textContent = "*";
 
     //clear the area of calculations
-    $("#total").value = "";
+    $("#total").textContent = "";
 
     //set cursor back to the first text box
     $("#first_name").focus();
+
+    //Sets net array to 0
+    netArray.length = 0;
+    average = 0;
 };
 
 const averageBtn = () => //this calulates the average income
@@ -133,9 +139,17 @@ const averageBtn = () => //this calulates the average income
         sum += netArray[i];
     }
 
-    var average = sum / netArray.length;
+    average = sum / netArray.length;
 
-    alert(`Hey the average income is ${average.toFixed(2)}`);
+    if (isNaN(average))
+    {
+        alert(`Average income is not available. Please add more information`);
+    }
+
+    else
+    {
+        alert(`Hey the average income is ${average.toFixed(2)}`);
+    }
 };
 
 
