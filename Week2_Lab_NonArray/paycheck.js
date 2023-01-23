@@ -1,8 +1,9 @@
 const $ = selector => document.querySelector(selector)
 
-let total = 0;
-let count = 0;
-let net = 0;
+let average = 0;
+var count = 0;
+let finalNet = 0;
+
 
 const submit = evt => //Once the submit button is clicked
 {
@@ -84,7 +85,9 @@ const submit = evt => //Once the submit button is clicked
 
 
     var net = gross - taxAmount;
+    
 
+    
 
     var html = document.querySelector("#total");
 
@@ -92,9 +95,14 @@ const submit = evt => //Once the submit button is clicked
 
     if (isValid != false)
     {
-        html.innerHTML += finalMessage 
+        html.innerHTML += finalMessage
+        count++;
+        finalNet += net;
     }
+
 };
+
+
 
 const clearForm = () => //This is the clear function
 {
@@ -116,29 +124,28 @@ const clearForm = () => //This is the clear function
     $("#first_name").focus();
 
     //Sets net array to 0
-    netArray.length = 0;
+    finalNet = 0;
     average = 0;
+    count = 0;
+    sum = 0;
 };
+
 
 const averageBtn = () => //this calulates the average income
 {
-    let sum = 0; 
 
-    for (let i = 0; i < netArray.length; i++)
-    {
-        sum += netArray[i];
-    }
+    let sum = 0;
 
-    average = sum / netArray.length;
-
-    if (isNaN(average))
+    sum += finalNet / count;
+    
+    if (isNaN(sum))
     {
         alert(`Average income is not available. Please add more information`);
     }
 
     else
     {
-        alert(`Hey the average income is ${average.toFixed(2)}`);
+        alert(`Hey the average income is ${sum.toFixed(2)}`);
     }
 };
 
