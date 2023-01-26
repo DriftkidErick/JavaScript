@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedi Name Calculator!!!!</title>
+
+    <!--Here we link the css-->
+    <link rel="stylesheet" href="jedi.css" />
+
+</head>
+<body>
+    <main>
+
+        <h1>Welcome to the Jedi Name Maker</h1>
+
+        <form id="jedi_form">
+
+            <div>
+                <label for="email_1">Email Address:</label>
+                <input type="text" id="email_1" name="email_1" />   <!-- Label, textbox, and spot for err. msg for Email -->
+                <span id="email_1_error">*</span>
+            </div>
+
+            
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" />   <!-- Label, textbox, and spot for err. msg for First Name -->
+                <span id="first_name_error">*</span>
+            </div>
+
+
+            <div>
+                <label for="season">Your favorite season (Fall, Winter, Spring, Summer):</label>
+                <input type="text" id="season" name="season" />
+                <span id="season">*</span>
+            </div>
+
+
+            <div>
+                <label for="ninja">If you were a Ninja Turtle, which one would you be would you be? (Leonardo, Donatello, Raphael or Michelangelo):</label>
+                <input type="text" id="ninja" name="ninja" />
+                <span id="ninja">*</span>
+            </div>
+
+            <div>
+                <label for="food">What is your favorite food? (Pizza, Hamburgers, Hot Dogs, Ice Cream)</label>
+                <input type="text" id="food" name="food" />
+                <span id="food">*</span>
+            </div>
+
+
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" id="join_list" value="Get Jedi Name" />   <!-- Submit and Clear buttons -->
+                <input type="button" id="clear_form" value="Clear Form" />
+            </div>
+
+        </form>
+
+        
+
+    </main>
+    
+    <script src="jediFinal.js"></script>
+</body>
+</html>
