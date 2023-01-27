@@ -135,9 +135,8 @@ const averageBtn = () => //this calulates the average income
 {
 
     let sum = 0;
-
     sum += finalNet / count;
-    
+
     if (isNaN(sum))
     {
         alert(`Average income is not available. Please add more information`);
