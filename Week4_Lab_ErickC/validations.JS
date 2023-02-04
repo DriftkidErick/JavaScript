@@ -156,7 +156,7 @@ function minimumPeople(intPeople)
 //Here i gave up and learned regular expressions
 function isPhoneValid(strPhone)
 {
-    phoneReg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/im;
+    phoneReg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/im; //Only allows 10 digits and () and -
 
     if(phoneReg.test(strPhone))
     {
@@ -171,7 +171,7 @@ function isPhoneValid(strPhone)
 //ZIPCODE TEST VALIDATION
 function isZipValid(strZip)
 {
-    regexp = /^[0-9]{5}$/;
+    regexp = /^[0-9]{5}$/; //Only allows 5 digits
 
         if (regexp.test(strZip))
             {
