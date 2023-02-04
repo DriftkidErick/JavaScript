@@ -214,12 +214,12 @@ const join_list = evt => //When the Join button is clicked
 
     let jediName = tempEmail + tempFname + " " + tempFood + " " + tempNinja + " of " + tempSeason;
 
-    if (isValid == false)
+    if (isValid == false) //if isValid is bad do not push info
     {
         evt.preventDefault();
         $("#error").textContent = "Please fill in all required fields.";
     }
-    else if (isValid == true)
+    else if (isValid == true) //if its good alert them with new name
     {
        
 

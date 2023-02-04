@@ -3,7 +3,8 @@ const $ = selector => document.querySelector(selector)
 // Functions ----------------------------------------------------------------
 
 //Email Validation
-function IsValidEmail(strEmail) {
+function IsValidEmail(strEmail) 
+{
 
     results = true;         //Initialize results
 
@@ -74,24 +75,6 @@ function GotBadWords(strAnything) {
 
 }
 
-//ZIPCODE TEST VALIDATION
-function IsZipBad(strZip)
-{
-    goodNums = ["0","1","2","3","4","5","6","7","8","9"];
-
-    //Assume the worst
-    results = false
-
-    for (val of goodNums)
-    {
-        if (isNaN(strZip) || strZip.length != 5)
-        //Horray it passed
-        results = true;
-    }
-
-    return results;
-}
-
 function IsStateGood(strState)
 {
     goodStates = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
@@ -120,6 +103,84 @@ function IsStateGood(strState)
 
     return doesItPass;
 
+}
+
+function isValidDOB(strDOB)
+{
+    today = new Date();
+
+    birthday = new Date(strDOB);
+
+    doesItPass = true;
+
+    if( birthday > today)
+    {
+        doesItPass = false;
+    }
+
+    return doesItPass;
+}
+
+function minimumCredits(intCredits)
+{   
+    minCred = 0;
+    doesItPass = true;
+
+    if(intCredits >= minCred)
+    {
+        doesItPass = true;
+    }
+    else
+    {
+        doesItPass = false;
+    }
+    return doesItPass;
+}
+
+function minimumPeople(intPeople)
+{   
+    minPeeps = 1;
+    doesItPass = true;
+
+    if(intPeople >= minPeeps)
+    {
+        doesItPass = true;
+    }
+    else
+    {
+        doesItPass = false;
+    }
+    return doesItPass;
+}
+
+//Here i gave up and learned regular expressions
+function isPhoneValid(strPhone)
+{
+    phoneReg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/im;
+
+    if(phoneReg.test(strPhone))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+//ZIPCODE TEST VALIDATION
+function isZipValid(strZip)
+{
+    regexp = /^[0-9]{5}$/;
+
+        if (regexp.test(strZip))
+            {
+            return true;
+            }
+        else
+            {
+            return false;
+            }
 }
 
 //Functions Close -----------------------------------------------------------
@@ -160,7 +221,7 @@ const join_list = evt =>
     //create a validation var
     isValid = true;
 
-    //Name validations
+    //Name validations---------------------------------------------------------------------------
 
     //First name
     if (tempFname == "" || GotBadWords(tempFname) == true)
@@ -198,10 +259,10 @@ const join_list = evt =>
         $("#lname_error").textContent = "";
     }
 
-    //Name Validations Done
+    //Name Validations Done---------------------------------------------------------------------------
 
 
-    //Address Validations
+    //Address Validations---------------------------------------------------------------------------
 
     //Street 1
     if (tempSteet1 == "" || GotBadWords(tempSteet1) == true)
@@ -239,7 +300,7 @@ const join_list = evt =>
 
     //State
 
-    if(IsStateGood(tempState) == false)
+    if(IsStateGood(tempState) == false || tempState == "")
     {
         $("#state_error").textContent = "Invalid State";
         isValid = false; 
@@ -252,7 +313,7 @@ const join_list = evt =>
 
     //Zip Code
 
-    if(IsZipBad(tempZipCode) == true)
+    if(isZipValid(tempZipCode) == false || tempZipCode == "")
     {
         $("#zip_error").textContent = "Invalid Zip";
         isValid = false; 
@@ -264,7 +325,104 @@ const join_list = evt =>
     }
 
 
-    //Address Validations Done
+    //Address Validations Done---------------------------------------------------------------------------
+
+    //Number and mail Validation---------------------------------------------------------------------------
+
+    if(isPhoneValid(homePhone) == false)
+    {
+        $("#homeNum_error").textContent = "Invalid Home Number";
+        isValid = false; 
+    }
+    else
+    {
+        $("#homeNum_error").textContent = "";
+
+    }
+
+    if(isPhoneValid(workPhone) == false)
+    {
+        $("#workNum_error").textContent = "Invalid Work Number";
+        isValid = false; 
+    }
+    else
+    {
+        $("#workNum_error").textContent = "";
+
+    }
+
+    if(isPhoneValid(cellPhone) == false || cellPhone == "")
+    {
+        $("#cellNum_error").textContent = "Invalid Cell Phone Number";
+        isValid = false; 
+    }
+    else
+    {
+        $("#cellNum_error").textContent = "";
+
+    }
+
+    //Email Validations
+    if(IsValidEmail(email) == false)
+    {
+    $("#email_error").textContent = "Invalid entry for Email";
+        isValid = false;
+    }
+
+    else
+    {
+        $("#email_error").textContent = "";//This will remove the * next to textbox for email
+    }
+
+    //Number and mail Validation Done---------------------------------------------------------------------------
+
+    //Misc---------------------------------------------------------------------------
+
+    //Date of Birth
+    if(isValidDOB(dob) == false || dob == "")
+    {
+        $("#dob_error").textContent = "Invalid date of birth";
+        isValid = false; 
+    }
+    else
+    {
+        $("#dob_error").textContent = "";
+
+    }
+
+    //Credits
+    if(minimumCredits(credits) == false || credits == "")
+    {
+        $("#credits_error").textContent = "Invalid Credit amount";
+        isValid = false; 
+    }
+    else
+    {
+        $("#credits_error").textContent = "";
+
+    }
+
+    //House Inhabitants
+    if(minimumPeople(people) == false)
+    {
+        $("#people_error").textContent = "Invalid input amount";
+        isValid = false; 
+    }
+    else
+    {
+        $("#people_error").textContent = "";
+
+    }
+
+    //Notes
+    if (GotBadWords(notes) == true)
+    {
+        $("#notes_error").textContent = "Ivalid Input";
+        isValid = false;
+    }
+
+
+    //Misc Done---------------------------------------------------------------------------
 
 
     if (isValid == false)
@@ -282,11 +440,66 @@ const join_list = evt =>
 
 }
 
+const clearForm = () =>
+{
+
+    //clears text boxes
+    $("#fname").value = "";
+    $("#mname").value = "";
+    $("#lname").value = "";
+
+    $("#street1").value = "";
+    $("#street2").value = "";
+    $("#city").value = "";
+    $("#state").value = "";
+    $("#zip").value  = "";
+
+    $("#homeNum").value = "";
+    $("#workNum").value = "";
+    $("#cellNum").value = "";
+    $("#email").value = "";
+
+    $("#dob").value = "";
+    $("#credits").value = "";
+    $("#people").value = "";
+    $("#notes").value = "";
+
+    //Clear span
+    $("#fname_error").textContent = "*";
+    $("#mname_error").textContent = "";
+    $("#lname_error").textContent = "*";
+
+    $("#street1_error").textContent = "*";
+    $("#street2_error").textContent = "";
+    $("#city_error").textContent = "*";
+    $("#state_error").textContent = "*";
+    $("#zip_error").textContent  = "*";
+
+    $("#homeNum_error").textContent = "*";
+    $("#workNum_error").textContent = "*";
+    $("#cellNum_error").textContent = "*";
+    $("#email_error").textContent = "*";
+
+    $("#dob_error").textContent = "*";
+    $("#credits_error").textContent = "*";
+    $("#people_error").textContent = "*";
+    $("#notes_error").textContent = "*";
+
+    //clear the area of calculations
+    $("#error").textContent = "";
+
+    //set cursor back to the first text box
+    $("#fname").focus();
+    
+    
+}
+
+
 document.addEventListener("DOMContentLoaded", () =>
 {
     //adds click event for the buttons
     $("#join_list").addEventListener("click", join_list);
-    //$("#clear_form").addEventListener("click", clearForm);
+    $("#clear_form").addEventListener("click", clearForm);
 
     //set cursor back to the first text box
     $("#fname").focus();    
