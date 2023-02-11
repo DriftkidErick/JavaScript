@@ -31,3 +31,9 @@ input, textarea {
 span {
     color:red;
 }
+.messages {
+    border: 3px solid red;
+    color: red;
+    padding: 2em;
+    margin-bottom: 2em;
+}
