@@ -239,7 +239,8 @@ const displayErrorMsgs = msgs =>
         const form = $("form");
 
         //add ul to parent of form, before the form
-        form.parentNode.insertBefore(ul, form);
+        form.parentNode.insertBefore(ul, form.nextElementSibling);
+        
     }
     else
     {
