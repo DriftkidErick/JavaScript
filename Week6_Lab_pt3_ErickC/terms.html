@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FAQs terms of services</title>
+    <link rel="stylesheet" href="cat.css">
+</head>
+<body>
+    <main>
+    <h1>FAQs Terms of Service</h1>
+        <p>This Guy Cant Agree to the terms of service.</p>
+        <img src="images/cat-in-the-hat-2003.gif">
+        <p><input type="button" id="accept" value="I Accept"></p>
+        <p><input type="button" id="decline" value="I Decline"></p>
+
+    <script> //This sends the user back to the home page after they accept
+
+    const btn = document.querySelector("#accept");
+    btn.addEventListener("click", () => window.location.href = 
+    "index.html?accepted=true");
+
+    const declineBtn = document.querySelector("#decline");
+    declineBtn.addEventListener("click", () => window.location.href = 
+    "decline.html?accepted=true");
+    </script>
+
+    </main>
+</body>
+</html>
