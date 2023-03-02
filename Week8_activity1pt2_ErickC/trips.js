@@ -21,8 +21,8 @@ $(document).ready(() =>
             //if the trip information is valid
             if (trip.isValid)
             {
-                trips.push(trip); //Pushesd it into array
-                $("#trip_list").val(trip.toString()); //List all trips in array within textarea
+                trips.push(trip); //Pushed it into array
+                $("#trip_list").val(trips.toString()); //List all trips in array within textarea
 
                 $("#destination").val(""); //clear textboxes to prepare for next entry
                 $("#miles").val("");
