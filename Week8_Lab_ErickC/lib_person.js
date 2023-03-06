@@ -5,19 +5,23 @@
 //Class written to be a template for an object instance
 class Person
 {
-    constructor(fname, lname, street1, city, state, zip, homeNum, workNum, cellNum, email, dob, credits, people )
+    constructor(fname, mname, lname, street1, street2, city, state, zip, homeNum, workNum, cellNum, email, dob, credits, people, notes )
     {
         this.fname = fname; 
+
+        this.mname = mname;
 
         this.lname = lname;
 
         this.street1 = street1;
 
+        this.street2 =  street2;
+
         this.city = city;
 
         this.state = state;
 
-        this.zip = parseInt(zip);
+        this.zip = zip;
 
         this.homeNum = homeNum;
 
@@ -27,11 +31,13 @@ class Person
 
         this.email = email;
 
-        this.dob = dob.DateTime.now();
+        this.dob = dob;
 
-        this.credits = parseInt(credits);
+        this.credits =credits;
 
-        this.people = parseInt(people);
+        this.people = people;
+
+        this.notes = notes;
     }
 
     get IsValid() //read Only
@@ -43,72 +49,125 @@ class Person
             result = false;
         }
 
-        if (this.lname == "" || GotBadWords(this.lname) == true)
+        else if(GotBadWords(this.mname) == true)
         {
             result = false;
         }
 
-        if (this.street1 == "" || GotBadWords(this.street1) == true)
+        else if (this.lname == "" || GotBadWords(this.lname) == true)
         {
             result = false;
         }
 
-        if (this.city == "" || GotBadWords(this.city) == true)
+        else if (this.street1 == "" || GotBadWords(this.street1) == true)
         {
             result = false;
         }
 
-        if (this.state == "" || IsStateGood(this.state) == false)
+        else if (GotBadWords(this.street2) == true)
+        {
+            result = false;
+        }
+
+        else if (this.city == "" || GotBadWords(this.city) == true)
+        {
+            result = false;
+        }
+
+        else if (this.state == "" || IsStateGood(this.state) == false)
         {
             result = false;
         }
         
-        if(this.zip == "" || isZipValid(this.zip) == false)
+        else if(this.zip == "" || isZipCode(this.zip) == false)
         {
             result = false;
         }
 
-        if(isPhoneValid(this.homeNum) == false)
+        else if(isPhoneValid(this.homeNum) == false)
         {
             result = false;
         }
 
-        if(isPhoneValid(this.workNum) == false)
+        else if(isPhoneValid(this.workNum) == false)
         {
             result = false;
         }
 
-        if(isPhoneValid(this.cellNum) == false || this.cellNum == "")
+        else if(isPhoneValid(this.cellNum) == false || this.cellNum == "")
         {
             result = false;
         }
 
-        if(IsValidEmail(this.email) == false)
+        else if(IsValidEmail(this.email) == false)
         {
             result = false;
         }
 
-        if(isValidDOB(this.dob) == false || this.dob =="")
+        else if(isValidDOB(this.dob) == false || this.dob =="")
         {
             result = false;
         }
 
-        if(minimumCredits(this.credits) == false || this.credits == "")
+        else if(this.credits < 0 || this.credits == "")
         {
             result = false;
         }
         
-        if(minimumPeople(this.people) == false)
+        else if(this.people < 0 || this.people == "")
         {
             result = false;
         }
+
+        else if(GotBadWords(this.notes))
+        {
+            result = false;
+        }
+
+        else
+        {
+            result = true;
+        }
+
+        return result;
 
     }
 
     toString()
     {
-        return `${this.fname}  ${this.lname}`
+        return `First Name: ${this.fname}   Last Name: ${this.lname}`;
+    }
+}
+
+class Persons
+{
+    //Constructor delcares the local array
+    constructor()
+    {
+        this._persons = [];
     }
 
+    //push function that recieves a person  instance and stores it if it is an actual person object
 
+    push(person)
+    {
+        //only allow person objects to be added to an array
+        if(person instanceof Person)
+        {
+            this._persons.push(person);
+        }
+    }
+
+    toString()
+    {
+        let str = "";
+
+        for (let person of this._persons)
+        {
+            str += person.toString() + "\n";
+        }
+
+        str += "\nNext Person";
+        return str;
+    }
 }
