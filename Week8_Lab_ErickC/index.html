@@ -117,16 +117,21 @@
 
             <p id="error" name="error"></p>
 
-            <div>
-                <label>&nbsp;</label>
-                <input type="submit" id="join_list" value="Join">
-                <input type="button" id="clear_form" value="Clear Form">
-            </div>
+            
 
         </form>
 
+        <div>
+            <label>&nbsp;</label>
+            <input type="submit" id="join_list" value="Join">
+            <input type="button" id="clear_form" value="Clear Form">
+            <!--This button below refreshes the entire page-->
+            <button onClick="window.location.href=window.location.href">Refresh Form</button>
+
+        </div>
+
         <div id="person">
-            <textarea id="person_list" rows="8" cols="40"></textarea>
+            <textarea id="person_list" rows="20" cols="60"></textarea>
         </div>
 
     </main>

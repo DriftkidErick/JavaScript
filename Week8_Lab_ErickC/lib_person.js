@@ -38,104 +38,134 @@ class Person
         this.people = people;
 
         this.notes = notes;
+
+        this.feedback = ""; //This is a string for feedback
     }
 
     get IsValid() //read Only
     {
-        let result = false;
+        let result = true;
+        
 
         if (this.fname == "" || GotBadWords(this.fname) == true)
         {
+            this.feedback += " Invalid first name \n";
             result = false;
         }
 
-        else if(GotBadWords(this.mname) == true)
+        if(GotBadWords(this.mname) == true)
         {
+            this.feedback += " Invalid middle name\n";
             result = false;
         }
 
-        else if (this.lname == "" || GotBadWords(this.lname) == true)
+        if (this.lname == "" || GotBadWords(this.lname) == true)
         {
+            this.feedback += " Invalid last name\n";
             result = false;
         }
 
-        else if (this.street1 == "" || GotBadWords(this.street1) == true)
+        if (this.street1 == "" || GotBadWords(this.street1) == true)
         {
+            this.feedback += " Invalid Street 1\n";
             result = false;
         }
 
-        else if (GotBadWords(this.street2) == true)
+        if (GotBadWords(this.street2) == true)
         {
+            this.feedback += " Invalid Street 2\n";
             result = false;
         }
 
-        else if (this.city == "" || GotBadWords(this.city) == true)
+        if (this.city == "" || GotBadWords(this.city) == true)
         {
+            this.feedback += " Invalid City\n";
             result = false;
         }
 
-        else if (this.state == "" || IsStateGood(this.state) == false)
+        if (this.state == "" || IsStateGood(this.state) == false)
         {
+            this.feedback += " Invalid State\n";
             result = false;
         }
         
-        else if(this.zip == "" || isZipCode(this.zip) == false)
+        if(this.zip == "" || isZipCode(this.zip) == false)
         {
+            this.feedback += " Invalid Zip\n";
             result = false;
         }
 
-        else if(isPhoneValid(this.homeNum) == false)
+        if(isPhoneValid(this.homeNum) == false)
         {
+            this.feedback += " Invalid Home Number\n";
             result = false;
         }
 
-        else if(isPhoneValid(this.workNum) == false)
+        if(isPhoneValid(this.workNum) == false)
         {
+            this.feedback += " Invalid Work Number\n";
             result = false;
         }
 
-        else if(isPhoneValid(this.cellNum) == false || this.cellNum == "")
+        if(isPhoneValid(this.cellNum) == false || this.cellNum == "")
         {
+            this.feedback += " Invalid Cell Phone Number\n";
             result = false;
         }
 
-        else if(IsValidEmail(this.email) == false)
+        if(IsValidEmail(this.email) == false)
         {
+            this.feedback += " Invalid entry for Email\n";
             result = false;
         }
 
-        else if(isValidDOB(this.dob) == false || this.dob =="")
+        if(isValidDOB(this.dob) == false || this.dob =="")
         {
+            this.feedback += " Invalid date of birth\n";
             result = false;
         }
 
-        else if(this.credits < 0 || this.credits == "")
+        if(this.credits < 0 || this.credits == "")
         {
+            this.feedback += " Invalid Credit amount\n";
             result = false;
         }
         
-        else if(this.people < 0 || this.people == "")
+        if(this.people < 0 || this.people == "")
         {
+            this.feedback += " Invalid input amount\n";
             result = false;
         }
 
-        else if(GotBadWords(this.notes))
+        if(GotBadWords(this.notes))
         {
+            this.feedback += " Ivalid Input\n";
             result = false;
-        }
-
-        else
-        {
-            result = true;
         }
 
         return result;
-
+        
     }
 
     toString()
     {
-        return `First Name: ${this.fname}   Last Name: ${this.lname}`;
+        return `\nFirst Name: ${this.fname} 
+        Middle Name:${this.mname} 
+        Last Name: ${this.lname} 
+        Street 1: ${this.street1} 
+        Street 2: ${this.street2} 
+        City:${this.city}
+        State: ${this.state} 
+        ZipCode: ${this.zip}
+        Home #: ${this.homeNum} 
+        Work #: ${this.workNum} 
+        Cell #: ${this.cellNum}
+        Email: ${this.email} 
+        DOB: ${this.dob}
+        Credits: ${this.credits} 
+        Inhabitants: ${this.people}
+        Notes: ${this.notes}`;
+
     }
 }
 
@@ -167,7 +197,7 @@ class Persons
             str += person.toString() + "\n";
         }
 
-        str += "\nNext Person";
+        str += "\n\n";
         return str;
     }
 }

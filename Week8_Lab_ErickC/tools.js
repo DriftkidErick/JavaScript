@@ -41,18 +41,44 @@ $(document).ready(() =>
             $("#people").val("");
             $("#notes").val("");
 
+
             //Set focus to first name
             $("#fname").focus();
+
 
         }
 
         else
         {
-            alert("Hey there are some errors");
+            alert("HEY!!! There are some errors\n\n" + person.feedback);
+
             $("#fname").select();
         }
+
 
     });
 
     $("#fname").focus();
+
+    $("#clear_form").click(() => 
+    {
+        //List all trips in array
+        $("#fname").val("");
+        $("#mname").val(""); 
+        $("#lname").val(""); 
+        $("#street1").val("");
+        $("#street2").val("");
+        $("#city").val("");
+        $("#state").val("");
+        $("#zip").val("");
+        $("#homeNum").val("");
+        $("#workNum").val("");
+        $("#cellNum").val("");
+        $("#email").val("");
+        $("#dob").val("");
+        $("#credits").val("");
+        $("#people").val("");
+        $("#notes").val("");
+
+    });
 });
