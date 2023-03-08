@@ -8,12 +8,12 @@ const displayPersons = () =>
 
     for (const person of personList)
     {
-        html += "<p><a href='#'>Delete</a>" + person.toString() + "</p>";
+        html += `<p><a href='#'>Delete</a>` + person.toString() + `</p>`;
     }
 
-    $("#persons").html(html);
+    $("#person").html(html);
 
-    $("#persons").find("a").each((index, a ) =>
+    $("#person").find("a").each((index, a ) =>
     {
         $(a).click (evt =>
             {
@@ -29,7 +29,7 @@ const displayPersons = () =>
 
 $(document).ready(() => 
 {
-    $("#add_person").click(() => 
+    $("#join_list").click(() => 
     {
         const personObj = 
         {
@@ -78,7 +78,7 @@ $(document).ready(() =>
         }
         else
         {
-            alert("Please enter all the correct info");
+            alert("Please enter all the correct info" + newPerson.feedback);
         }
         $("#fname").select();
     });
@@ -108,6 +108,6 @@ $(document).ready(() =>
 
     personList.load()
     displayPersons();
-    $("fname").focus;
+    $("#fname").focus;
     
 })

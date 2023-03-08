@@ -22,15 +22,15 @@ input {
 span {
     color: red;
 }
-#tasks {
-    float: ; 
-    width: 25em;
+#person {
+    
+    width: 30em;
     margin: 0 0 .5em;
     padding: 1em;
     border: 2px solid blue;
     min-height: 5em;
 }
-#tasks a { 
+#person a { 
     margin-right: 0.5em; 
 }
 .clear { 

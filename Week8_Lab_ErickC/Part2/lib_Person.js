@@ -5,7 +5,7 @@
 //Class written to be a template for an object instance
 class Person
 {
-    constructor({fname, mname, lname, street1, street2, city, state, zip, homeNum, workNum, cellNum, email, dob, credits, people, notes })
+    constructor({fname, mname, lname, street1, street2, city, state, zipCode, homeNum, workNum, cellNum, email, dob, credits, inhabitants, notes })
     {
         this.fname = fname; 
 
@@ -21,7 +21,7 @@ class Person
 
         this.state = state;
 
-        this.zip = zip;
+        this.zipCode = zipCode;
 
         this.homeNum = homeNum;
 
@@ -35,7 +35,7 @@ class Person
 
         this.credits =credits;
 
-        this.people = people;
+        this.inhabitants = inhabitants;
 
         this.notes = notes;
 
@@ -49,7 +49,7 @@ class Person
 
         if (this.fname == "" || GotBadWords(this.fname) == true)
         {
-            this.feedback += " Invalid first name \n";
+            this.feedback += " \nInvalid first name \n";
             result = false;
         }
 
@@ -89,7 +89,7 @@ class Person
             result = false;
         }
         
-        if(this.zip == "" || isZipCode(this.zip) == false)
+        if(this.zipCode == "" || isZipCode(this.zipCode) == false)
         {
             this.feedback += " Invalid Zip\n";
             result = false;
@@ -131,15 +131,15 @@ class Person
             result = false;
         }
         
-        if(this.people < 0 || this.people == "")
+        if(this.inhabitants < 0 || this.inhabitants == "")
         {
-            this.feedback += " Invalid input amount\n";
+            this.feedback += " Invalid people amount\n";
             result = false;
         }
 
         if(GotBadWords(this.notes))
         {
-            this.feedback += " Ivalid Input\n";
+            this.feedback += " Ivalid notes\n";
             result = false;
         }
 
@@ -150,21 +150,21 @@ class Person
     toString()
     {
         return `\nFirst Name: ${this.fname} 
-        Middle Name:${this.mname} 
-        Last Name: ${this.lname} 
-        Street 1: ${this.street1} 
-        Street 2: ${this.street2} 
-        City:${this.city}
-        State: ${this.state} 
-        ZipCode: ${this.zip}
-        Home #: ${this.homeNum} 
-        Work #: ${this.workNum} 
-        Cell #: ${this.cellNum}
-        Email: ${this.email} 
-        DOB: ${this.dob}
-        Credits: ${this.credits} 
-        Inhabitants: ${this.people}
-        Notes: ${this.notes}`;
+        <br>Middle Name:${this.mname} 
+        <br>Last Name: ${this.lname} 
+        <br>Street 1: ${this.street1} 
+        <br>Street 2: ${this.street2} 
+        <br>City:${this.city}
+        <br>State: ${this.state} 
+        <br>ZipCode: ${this.zipCode}
+        <br>Home #: ${this.homeNum} 
+        <br>Work #: ${this.workNum} 
+        <br>Cell #: ${this.cellNum}
+        <br>Email: ${this.email} 
+        <br>DOB: ${this.dob}
+        <br>Credits: ${this.credits} 
+        <br>Inhabitants: ${this.inhabitants}
+        <br>Notes: ${this.notes}`;
 
     }
 }
