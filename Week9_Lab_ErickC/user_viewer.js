@@ -12,8 +12,10 @@ const getTodo = async id =>
     else //Get the info across multiple fetchs, using "await" to help control flow
     {
         //Get the User based on the ID
-        const req1 = await fetch(`${domain}/users/${id}/todos`);
+        const req1 = await fetch(`${domain}/todos/${id}`);
         const user = await req1.json();
+
+        
         
         
     }
