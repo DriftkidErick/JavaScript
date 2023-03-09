@@ -32,13 +32,13 @@ const displayUserData = user =>
     alert(user.todo);
     let html = ``;
     
-    html += `<p>name: ${user.name}</p>`;
+    html += `<p>Name: ${user.name}</p>`;
 
     //Here im going to build a for loop to get each object to print
     var i = 0;
     for(i = 0; i < user.todo.length; i++)
     {
-      html += `<p>Todo list: ${user.todo}</p>`;
+      html += `<p>Todo list: <br>Id: ${user.todo[i].id} <br>Title: ${user.todo[i].title} <br>Completion Status: ${user.todo[i].completed}</p>`;
     };
     
 
