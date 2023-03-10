@@ -29,10 +29,15 @@ const getTodo = async userId =>
 
 const displayUserData = user =>
 {
-    alert(user.todo);
+    
     let html = ``;
     
     html += `<p>Name: ${user.name}</p>`;
+    html += `<p>Username: ${user.username}</p>`;
+    html += `<p>Email: ${user.email}</p>`;
+    html += `<p>Phone: ${user.phone}</p>`;
+
+    html += `<h3>Tasks</h3>`
 
     //Here im going to build a for loop to get each object to print
     var i = 0;
@@ -42,11 +47,11 @@ const displayUserData = user =>
     };
     
 
-    alert(html);
+   
     
     $("#endGoal").html(html);
 
-    alert('End of display User');
+    
 };
 
 
